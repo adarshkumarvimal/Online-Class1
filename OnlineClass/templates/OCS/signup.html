@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+</head>
+<body>
+    <div class="menu"></div>
+    <h1>User Registration</h1>
+    <form action="http://localhost:8000/OCS/save-user/" method="post">
+        {% csrf_token %}
+    
+        <table>
+            <tr>
+                <td>User-name</td>
+                <td><input type="text" name="username" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>Real Name</tr>
+            <tr><input type="text" name="fullname"></tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="singup"></td>
+            </tr>
+        </table>
+    </form>
+    <!-- <p>{{errmsg}}</p> -->
+</body>
+</html>

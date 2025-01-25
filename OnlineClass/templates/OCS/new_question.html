@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Question</title>
+</head>
+<body>
+    <div class="menu">
+        {%if request.session.username == 'username' %}
+        <!-- view for student -->
+        <a href="http://localhost:8000/OCS/view-question">View question</a><br>
+        <a href="http://localhost:8000/OCS/new-question">New Question</a><br>
+        <a href="http://localhost:8000/OCS/logout">Logout</a>
+        {% else %}
+        <!-- view for student -->
+        <a href="http://localhost:8000/OCS/start-test">Start Test</a><br>
+        <a href="http://localhost:8000/OCS/recoding-lecture">Recoding lecture</a><br>   
+        <a href="http://localhost:8000/OCS/logout">Logout</a>
+        {%endif%}
+    </div>
+    <form action="http://localhost:8000/OCS/save-question/" method="post">
+        {% csrf_token%}
+        <div class="title">Question Statment</div>
+        <div class="data"><textarea name="question"></textarea></div>
+        
+        <div class="title">Option a</div>
+        <div class="data"><input type="text" name="optiona"></div>
+
+        <div class="title">Option b</div>
+        <div class="data"><input type="text" name="optionb"></div>
+
+        <div class="title">Option c</div>
+        <div class="data"><input type="text" name="optionc"></div>
+
+        <div class="title">Option d</div>
+        <div class="data"><input type="text" name="optiond"></div>
+
+        <div class="title">answer</div>
+        <div class="data">
+            <select name="answer">
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+                <option value="d">d</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</body>
+</html>

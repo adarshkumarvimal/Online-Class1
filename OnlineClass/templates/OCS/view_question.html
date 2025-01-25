@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view question</title>
+</head>
+<div class="menu">
+    {%if request.session.username == 'username' %}
+    <!-- view for student -->
+    <a href="http://localhost:8000/OCS/view-question">View question</a><br>
+    <a href="http://localhost:8000/OCS/new-question">New Question</a><br>
+    <a href="http://localhost:8000/OCS/logout">Logout</a>
+    {% else %}
+    <!-- view for student -->
+    <a href="http://localhost:8000/OCS/start-test">Start Test</a><br>
+    <a href="http://localhost:8000/OCS/recoding-lecture">Recoding lecture</a><br>   
+    <a href="http://localhost:8000/OCS/logout">Logout</a>
+    {%endif%}
+</div>
+    <h1>View Question</h1>
+    <table border="5">
+       <tr>
+        <th>Ques no.</th>
+        <th>Question</th>
+        <th>OptionsA</th>
+        <th>OptionB</th>
+        <th>OptionC</th>
+        <th>OptionD</th>
+        <th>Answer</th>       
+       </tr>
+       {% for question in questions%}
+       <tr>
+        <td>{{question.qno}}</td>
+        <td>{{question.que}}</td>
+        <td>{{question.optiona}}</td>
+        <td>{{question.optionb}}</td>
+        <td>{{question.optionc}}</td>
+        <td>{{question.optiond}}</td>
+        <td>{{question.answer}}</td>
+        <td><a href="http://localhost:8000/OCS/edit-question?qno={{question.qno}}">Edit</a></td>
+        <td><a href="http://localhost:8000/OCS/delete-question?qno={{question.qno}}">Delete</a></td>
+       </tr>
+
+       {% endfor%}
+    </table>
+</body>
+</html>

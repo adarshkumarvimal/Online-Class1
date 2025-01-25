@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to Online Mode Of Learning</h1>
+    <div class="menu">
+        {%if request.session.username == 'username' %}
+        <!-- view for student -->
+        <a href="http://localhost:8000/OCS/view-question">View question</a><br>
+        <a href="http://localhost:8000/OCS/new-question">New Question</a><br>
+        <a href="http://localhost:8000/OCS/logout">Logout</a>
+        {% else %}
+        <!-- view for student -->
+        <a href="http://localhost:8000/OCS/start-test">Start Test</a><br>
+        <a href="http://localhost:8000/OCS/recoding-lecture">Recoding lecture</a><br>   
+        <a href="http://localhost:8000/OCS/logout">Logout</a>
+        {%endif%}
+    </div>
+    <h1>Welcome {{request.session.username}} to E-Learning Platform</h1>
+
+</body>
+</html>

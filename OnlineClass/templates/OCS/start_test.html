@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Paper</title>
+</head>
+<body>
+    <h1>Test Paper</h1>
+    <h2>name</h2>
+
+    <form action="http://localhost:8000/OCS/test-result/" method="post">
+        {%csrf_token%}
+        {% for question in questions%}
+        <div class="question">
+            <input type="hidden" name="qno{{question.qno}}" value="{{question.qno}}">
+        </div>
+        <div class="que">{{question.que}}</div>
+        <div class="optiona"><input type="radio" name="q{{question.qno}}" value="a">{{question.optiona}}</div>
+        <div class="optiona"><input type="radio" name="q{{question.qno}}" value="b">{{question.optionb}}</div>
+        <div class="optiona"><input type="radio" name="q{{question.qno}}" value="c">{{question.optionc}}</div>
+        <div class="optiona"><input type="radio" name="q{{question.qno}}" value="d">{{question.optiond}}</div>
+        {% endfor %}
+        <div><input type="submit" values="submit" id=""></div>
+    </form>
+
+</body>
+</html>

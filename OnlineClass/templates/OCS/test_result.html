@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Result</title>
+</head>
+<body>
+    <h1>User Name</h1>
+    <div class="menu">
+        {%if request.session.username == 'username' %}
+        <!-- view for student -->
+        <a href="http://localhost:8000/OCS/view-question">View question</a><br>
+        <a href="http://localhost:8000/OCS/new-question">New Question</a><br>
+        <a href="http://localhost:8000/OCS/logout">Logout</a>
+        {% else %}
+        <!-- view for student -->
+        <a href="http://localhost:8000/OCS/start-test">Start Test</a><br>
+        <a href="http://localhost:8000/OCS/recoding-lecture">Recoding lecture</a><br>   
+        <a href="http://localhost:8000/OCS/logout">Logout</a>
+        {%endif%}
+    </div>
+    <h1>Test Result</h1>
+    <table>
+        <tr>
+            <td>Total Attempt</td>
+            <td>{{total_attempt}}</td>
+        </tr>
+        <tr>
+            <td>Total Right</td>
+            <td>{{tot_r}}</td>
+        </tr>
+        <tr>
+            <td>Total Wrong</td>
+            <td>{{tot_w}}</td>
+        </tr>
+
+    </table>
+</body>
+</html>
